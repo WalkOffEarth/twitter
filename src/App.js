@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import Tweets from "./pages/Tweets";
+import Trends from "./pages/Trends";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">Hello World</div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Tweets</Link>
+          </li>
+          <li>
+            <Link to="/trends">Trends</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route path="/trends" component={Trends}></Route>
+        <Route path="/" component={Tweets}></Route>
+      </Switch>
+    </Router>
   );
 }
 
